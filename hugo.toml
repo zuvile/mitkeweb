@@ -1,0 +1,24 @@
+baseURL = "https://YOURUSERNAME.github.io/"
+languageCode = "en-us"
+theme = "poison"
+paginate = 10
+pluralizelisttitles = false
+
+[params]
+brand = "Živilė Mitkė"
+description = "Rašytoja"
+brand_image = "/images/profile.jpg"
+customCSS = ["css/custom.css"]
+email_url = "mailto:zivilemitkerasytoja@gmail.com"
+facebook_url = "https://www.facebook.com/zuvile/"
+instagram_url = "https://www.instagram.com/zivile.mitke/"
+front_page_content = ["posts"]
+
+menu = [
+    {Name = "About",  URL = "/about/",  HasChildren = false},
+    {Name = "Books",  URL = "/books/",  HasChildren = false},
+    {Name = "Contact", URL = "/contact/", HasChildren = false},
+    {Name = "Posts",  URL = "/posts/",  Pre = "Recent", HasChildren = true, Limit = 5},
+]
+
+
