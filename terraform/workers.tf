@@ -3,7 +3,12 @@ resource "cloudflare_worker" "mitkeweb" {
   name       = "mitkeweb"
 
   observability = {
-    enabled = true
+    enabled = false
+  }
+
+  subdomain = {
+    enabled          = false
+    previews_enabled = false
   }
 }
 
@@ -34,4 +39,32 @@ resource "cloudflare_workers_deployment" "mitkeweb_deployment" {
     percentage = 100
     version_id = cloudflare_worker_version.mitkeweb_version.id
   }]
+
+  lifecycle {
+    ignore_changes = [versions]
+  }
 }
+
+resource "cloudflare_workers_custom_domain" "mitkeweb_zivilemitke_com_custom_domain" {
+  account_id = var.cloudflare_account_id
+  zone_id    = cloudflare_zone.zivilemitke_com.id
+  service    = cloudflare_worker.mitkeweb.name
+  hostname   = "zivilemitke.com"
+
+  lifecycle {
+    ignore_changes = [environment]
+  }
+}
+
+resource "cloudflare_workers_custom_domain" "mitkeweb_zivilemitke_lt_custom_domain" {
+  account_id = var.cloudflare_account_id
+  zone_id    = cloudflare_zone.zivilemitke_lt.id
+  service    = cloudflare_worker.mitkeweb.name
+  hostname   = "zivilemitke.lt"
+
+  lifecycle {
+    ignore_changes = [environment]
+  }
+}
+
+

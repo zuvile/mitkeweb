@@ -1,5 +1,7 @@
 name = "mitkeweb"
 compatibility_date = "2025-12-10"
+workers_dev = false
+preview_urls = false
 
 [build]
 command = "hugo --gc --minify"
