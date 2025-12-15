@@ -4,6 +4,12 @@
 /data/
 /hugo_cache/
 
+# Node
+/node_modules/
+
+# Terraform
+.terraform/
+
 # macOS
 .DS_Store
 

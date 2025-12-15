@@ -1,0 +1,9 @@
+name = "mitkeweb"
+compatibility_date = "2025-12-10"
+
+[build]
+command = "hugo --gc --minify"
+
+[assets]
+directory = "./public"
+not_found_handling = "404-page"

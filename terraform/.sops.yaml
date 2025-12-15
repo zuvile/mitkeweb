@@ -1,0 +1,3 @@
+creation_rules:
+  - path_regex: cloudflare-key.json
+    age: age1vsakg27m8eyhm3qnmygkeygl4zyhfg6tm7jyr0lusfjuvty8ypcsnpkppq

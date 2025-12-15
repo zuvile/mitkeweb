@@ -34,3 +34,28 @@ hugo
 *   **`themes/poison`**: The active theme.
 *   **`static/`**: Assets like images (`static/images/`) that are copied directly to the build.
 *   **`public/`**: The generated static site (do not edit files here directly).
+
+## Terraform
+
+This project uses Terraform to manage Cloudflare resources.
+
+### Important Notes:
+
+*   **Never run `terraform apply` directly.** Changes should be reviewed and applied through the CI/CD pipeline or by an authorized maintainer.
+*   The Terraform configuration is primarily for defining and updating Cloudflare infrastructure setup.
+
+### Common Commands:
+
+1.  **Initialize Terraform:**
+    ```bash
+    export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt # Or your preferred method for providing the SOPS key
+    source terraform/.envrc
+    terraform init
+    ```
+2.  **Review Proposed Changes:**
+    ```bash
+    export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt # Or your preferred method for providing the SOPS key
+    source terraform/.envrc
+    terraform plan
+    ```
+
