@@ -1,4 +1,5 @@
 name = "mitkeweb"
+main = "terraform/mitkeweb.mjs"
 compatibility_date = "2025-12-10"
 workers_dev = false
 preview_urls = false

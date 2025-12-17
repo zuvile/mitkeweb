@@ -67,4 +67,26 @@ resource "cloudflare_workers_custom_domain" "mitkeweb_zivilemitke_lt_custom_doma
   }
 }
 
+resource "cloudflare_workers_custom_domain" "mitkeweb_www_zivilemitke_com_custom_domain" {
+  account_id = var.cloudflare_account_id
+  zone_id    = cloudflare_zone.zivilemitke_com.id
+  service    = cloudflare_worker.mitkeweb.name
+  hostname   = "www.zivilemitke.com"
+
+  lifecycle {
+    ignore_changes = [environment]
+  }
+}
+
+resource "cloudflare_workers_custom_domain" "mitkeweb_www_zivilemitke_lt_custom_domain" {
+  account_id = var.cloudflare_account_id
+  zone_id    = cloudflare_zone.zivilemitke_lt.id
+  service    = cloudflare_worker.mitkeweb.name
+  hostname   = "www.zivilemitke.lt"
+
+  lifecycle {
+    ignore_changes = [environment]
+  }
+}
+
 
